@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  BaseProject
+
+  Created by Ha Cong Thuan on 5/28/18.
+  Copyright © 2018 Ha Cong Thuan. All rights reserved.
+*/
+//Define button
+"Back" = "Thoát";
+"Log out" = "Đăng xuất";
+"English" = "English";
+"Agree" = "Đồng ý";
+"Add product"   = "Thêm sản phẩm";

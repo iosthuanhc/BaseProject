@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (4.7.2)
+  - AlamofireNetworkActivityIndicator (2.2.1):
+    - Alamofire (~> 4.7)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
+  - Localize-Swift (2.0.0)
+  - ObjectMapper (3.1.0)
+  - SVProgressHUD (2.2.5)
+  - TPKeyboardAvoiding (1.3.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireNetworkActivityIndicator
+  - AlamofireObjectMapper
+  - Localize-Swift
+  - ObjectMapper
+  - SVProgressHUD
+  - TPKeyboardAvoiding
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - AlamofireObjectMapper
+    - Localize-Swift
+    - ObjectMapper
+    - SVProgressHUD
+    - TPKeyboardAvoiding
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AlamofireNetworkActivityIndicator: aeac50e6ecb78ec71a5f1f29098bcf4ec2962910
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
+
+PODFILE CHECKSUM: 0e135faace425c77a2e544bb6db1de8a30ca99af
+
+COCOAPODS: 1.5.0
