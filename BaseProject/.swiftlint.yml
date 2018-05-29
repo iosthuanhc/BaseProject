@@ -1,0 +1,10 @@
+excluded:
+  - Pods
+  - Library
+  - moreMall/R.generated.swift
+
+opt_in_rules:
+
+disabled_rules:
+  - trailing_whitespace
+  - line_length

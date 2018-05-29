@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     func postNewContact() {
         let request = BusinessPostNewContactRequest()
-        request.business_id = "businessID"
+        request.businessid = "businessID"
         request.name = "name.text"
         request.email = "email.text"
         request.phone = "phone.text"
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         request.username = "userNameTextField.text"
         request.email = "emailTextField.text"
         request.password = "passwordTextFIeld.text"
-        request.password_confirmation = "confirmPassword.text"
+        request.passwordconfirmation = "confirmPassword.text"
         request.name = "nameTextField.text"
         request.branch = "industryTextField.text"
         request.province = "cityTextField.text"
@@ -69,10 +69,10 @@ class ViewController: UIViewController {
 
     func makeAddProductRequest() {
         let productImage = UIImage(named: "abc")
-        var params = [String:Any]()
+        var params = [String: Any]()
         params["title"] = "titleTextFiled.text"
         params["description"] = "descriptionTextView.text"
-        params["attachment"] = NetData(data: UIImagePNGRepresentation(productImage!)!, mimeType:MimeType.ImagePng, param: "attachment")
+        params["attachment"] = NetData(data: UIImagePNGRepresentation(productImage!)!, mimeType: MimeType.imagePng, param: "attachment")
         weak var mySelf = self
         let url = ApiUrl.addProducts.url
         ApiManager.upload(url, params: params, useTokenAndApiKey: true, responseClass: RegisBusinessResponse.self, callBack: { (sucess, response) -> Void in

@@ -13,8 +13,8 @@ class Common {
     class func setBadgeValue(tab: UITabBarController, value: Int = 0, inTabarIndex: Int ) {
         if let tabItems = tab.tabBar.items as NSArray?, value > 0 {
             // In this case we want to modify the badge number of the third tab:
-            let tabItem = tabItems[inTabarIndex] as! UITabBarItem
-            tabItem.badgeValue = "\(value)"
+            let tabItem = tabItems[inTabarIndex] as? UITabBarItem
+            tabItem?.badgeValue = "\(value)"
         }
         UIApplication.shared.applicationIconBadgeNumber = value
     }
@@ -29,19 +29,19 @@ class Common {
         parent.present(alert, animated: true, completion: nil)
     }
     
-    class func validateEmail(input:String) -> Bool {
+    class func validateEmail(input: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: input)
     }
     
-    class func convertDate(date: String, dateFormat: String) -> DateComponents{
+    class func convertDate(date: String, dateFormat: String) -> DateComponents {
         let dateFormatter = DateFormatter()
         let userCalendar = Calendar.current
-        let requestedComponent: Set<Calendar.Component> = [.year,.month,.day,.hour,.minute,.second]
+        let requestedComponent: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
         dateFormatter.dateFormat = dateFormat
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!
-        let startTime = dateFormatter.date(from:date )
+        let startTime = dateFormatter.date(from: date )
         let timeDifference = userCalendar.dateComponents(requestedComponent, from: startTime!, to:  Date()
         )
         return timeDifference

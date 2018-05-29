@@ -12,7 +12,7 @@ import AlamofireNetworkActivityIndicator
 import AlamofireObjectMapper
 import SVProgressHUD
 
-typealias apiCallback = (Bool, Any?) -> Void
+typealias ApiCallback = (Bool, Any?) -> Void
 var alamofireManager: SessionManager?
 let apiKey = ""
 var tokenKey: String?
@@ -24,7 +24,7 @@ class ApiManager: NSObject, UIApplicationDelegate {
     
     //POST
     @discardableResult
-    class func post<T> (url: String, params: [String: Any]?, timeOut: TimeInterval = 120, useTokenAndApiKey: Bool = false, responseClass: T.Type, callBack: @escaping apiCallback) -> Request? where T: BaseModel {
+    class func post<T> (url: String, params: [String: Any]?, timeOut: TimeInterval = 120, useTokenAndApiKey: Bool = false, responseClass: T.Type, callBack: @escaping ApiCallback) -> Request? where T: BaseModel {
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.show()
         let configuration = URLSessionConfiguration.default
@@ -49,7 +49,7 @@ class ApiManager: NSObject, UIApplicationDelegate {
     
     //GET
     @discardableResult
-    class func get<T>(_ url: String, params: [String: Any]? = nil, useTokenAndApiKey: Bool = false, responseClass: T.Type, callBack: @escaping apiCallback) -> Request? where T: BaseModel {
+    class func get<T>(_ url: String, params: [String: Any]? = nil, useTokenAndApiKey: Bool = false, responseClass: T.Type, callBack: @escaping ApiCallback) -> Request? where T: BaseModel {
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.show()
         debugLogRequest(url: url, param: params as [String : AnyObject]?)
@@ -68,7 +68,7 @@ class ApiManager: NSObject, UIApplicationDelegate {
     }
     
     //UPLOAD
-    class func upload<T>(_ url: String, params: [String: Any]? = nil, useTokenAndApiKey: Bool = false, timeOut:TimeInterval = 240, responseClass: T.Type, callBack: @escaping apiCallback) where T: BaseModel {
+    class func upload<T>(_ url: String, params: [String: Any]? = nil, useTokenAndApiKey: Bool = false, timeOut:TimeInterval = 240, responseClass: T.Type, callBack: @escaping ApiCallback) where T: BaseModel {
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.show()
         let configuration = URLSessionConfiguration.default
@@ -109,7 +109,7 @@ class ApiManager: NSObject, UIApplicationDelegate {
         }
     }
     
-    class func processResponse<T>(_ response: DataResponse<T>, showMessage: Bool = true, callBack: apiCallback) where T: BaseModel {
+    class func processResponse<T>(_ response: DataResponse<T>, showMessage: Bool = true, callBack: ApiCallback) where T: BaseModel {
         debugLogResponse(response: response)
         // In case status code is 200
         SVProgressHUD.dismiss()
@@ -177,17 +177,17 @@ class ApiManager: NSObject, UIApplicationDelegate {
 /// Mime type enum for upload
 public enum MimeType: String {
     
-    case ImageJpeg = "image/jpeg"
-    case ImagePng  = "image/png"
-    case ImageGif  = "image/gif"
-    case Json      = "application/json"
-    case Unknown   = ""
+    case imageJpeg = "image/jpeg"
+    case imagePng  = "image/png"
+    case imageGif  = "image/gif"
+    case json      = "application/json"
+    case unknown   = ""
     
     func getString() -> String? {
         switch self {
-        case .ImagePng, .ImageJpeg, .ImageGif, .Json:
+        case .imagePng, .imageJpeg, .imageGif, .json:
             return rawValue
-        case .Unknown:
+        case .unknown:
             fallthrough
         default:
             return nil
@@ -200,7 +200,7 @@ public enum MimeType: String {
 open class NetData {
     
     var data = Data()
-    var mimeType = MimeType.Unknown
+    var mimeType = MimeType.unknown
     var param = ""
     
     public init() {
@@ -215,13 +215,13 @@ open class NetData {
     
     public init(pngImage: UIImage, param: String) {
         data = UIImagePNGRepresentation(pngImage)!
-        self.mimeType = MimeType.ImagePng
+        self.mimeType = MimeType.imagePng
         self.param = param
     }
     
     public init(jpegImage: UIImage, compressionQuanlity: CGFloat, param: String) {
         data = UIImageJPEGRepresentation(jpegImage, compressionQuanlity)!
-        self.mimeType = MimeType.ImageJpeg
+        self.mimeType = MimeType.imageJpeg
         self.param = param
     }
     

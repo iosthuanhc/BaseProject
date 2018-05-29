@@ -18,7 +18,7 @@ extension UIViewController {
     class func instantiateControllerWith<T: UIViewController>(appStoryboard: AppStoryBoard) -> T {
         let storyboard = UIStoryboard(name: appStoryboard.rawValue, bundle: nil)
         let identifier = String(describing: self)
-        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
+        return (storyboard.instantiateViewController(withIdentifier: identifier) as? T)!
     }
 }
 

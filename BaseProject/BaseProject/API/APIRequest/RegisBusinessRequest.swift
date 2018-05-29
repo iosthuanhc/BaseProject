@@ -15,7 +15,7 @@ class RegisBusinessRequest: BaseModel {
     var username: String?
     var email: String?
     var password: String?
-    var password_confirmation: String?
+    var passwordconfirmation: String?
     var name: String?
     var branch: String?
     var province: String?
@@ -29,7 +29,7 @@ class RegisBusinessRequest: BaseModel {
         username <- map["username"]
         email <- map["email"]
         password <- map["password"]
-        password_confirmation <- map["password_confirmation"]
+        passwordconfirmation <- map["password_confirmation"]
         name <- map["name"]
         branch <- map["branch"]
         province <- map["province"]
