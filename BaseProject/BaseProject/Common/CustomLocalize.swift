@@ -36,11 +36,11 @@ class CustomTextField: UITextField {
     override public func awakeFromNib() {
         super.awakeFromNib()
         
-        if let placeholder = placeholder , !placeholder.isEmpty {
+        if let placeholder = placeholder, !placeholder.isEmpty {
             self.placeholder = placeholder.localized()
         }
         
-        if let text = text , !text.isEmpty {
+        if let text = text, !text.isEmpty {
             self.text = text.localized()
         }
         
@@ -63,7 +63,7 @@ class CustomTextView: UITextView {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        if let text = text , !text.isEmpty {
+        if let text = text, !text.isEmpty {
             self.text = text.localized()
         }
         

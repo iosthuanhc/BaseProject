@@ -11,7 +11,7 @@ import ObjectMapper
 
 class BusinessPostNewContactRequest: BaseModel {
     
-    var business_id: String?
+    var businessid: String?
     var name: String?
     var email: String?
     var phone: String?
@@ -19,7 +19,7 @@ class BusinessPostNewContactRequest: BaseModel {
     
     override func mapping(map: Map) {
         super.mapping(map: map)
-        business_id <- map["business_id"]
+        businessid <- map["business_id"]
         name <- map["name"]
         email <- map["email"]
         phone <- map["phone"]
